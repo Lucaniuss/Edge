@@ -1,5 +1,5 @@
 # Edge
-An open-sourced Tablist API. (This API can produce errors, please report them to me if you encounter any)
+An open-sourced Tablist API primarily made for 1.7x-1.8x Spigot servers. (This API can produce errors, please report them to me if you encounter any)
 ***
 
 ### Importing with Maven
