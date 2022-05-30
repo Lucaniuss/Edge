@@ -1,12 +1,12 @@
 package me.lucanius.edge.tab;
 
 import lombok.Getter;
-import me.lucanius.edge.context.TabColumn;
+import me.lucanius.edge.column.TabColumn;
 import me.lucanius.edge.entry.TabEntry;
 import me.lucanius.edge.player.PlayerTab;
+import me.lucanius.edge.player.version.ClientVersion;
 import me.lucanius.edge.skin.Skin;
 import me.lucanius.edge.tools.CC;
-import me.lucanius.edge.player.version.ClientVersion;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;

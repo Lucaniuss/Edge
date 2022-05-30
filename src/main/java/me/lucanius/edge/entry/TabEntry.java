@@ -2,7 +2,7 @@ package me.lucanius.edge.entry;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import me.lucanius.edge.context.TabColumn;
+import me.lucanius.edge.column.TabColumn;
 import me.lucanius.edge.player.PlayerTab;
 import me.lucanius.edge.skin.Skin;
 import org.bukkit.OfflinePlayer;
@@ -12,7 +12,8 @@ import org.bukkit.OfflinePlayer;
  * @since May 30, 2022.
  * Edge - All Rights Reserved.
  */
-@Data @AllArgsConstructor
+@Data
+@AllArgsConstructor
 public class TabEntry {
 
     private String identifier;

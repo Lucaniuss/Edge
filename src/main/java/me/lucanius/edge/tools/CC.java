@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * @author Lucanius
  * @since May 20, 2022
- *
+ * <p>
  * Taken from my Twilight project.
  */
 @UtilityClass

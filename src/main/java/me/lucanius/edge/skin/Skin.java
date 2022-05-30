@@ -20,9 +20,6 @@ import java.util.UUID;
 @Data
 public class Skin {
 
-    private final String value;
-    private final String signature;
-
     private final static JsonParser parser = new JsonParser();
     @Getter private final static Map<UUID, Skin> cache = new HashMap<>();
     @Getter private final static Skin empty = new Skin(
@@ -30,13 +27,8 @@ public class Skin {
             "u8sG8tlbmiekrfAdQjy4nXIcCfNdnUZzXSx9BE1X5K27NiUvE1dDNIeBBSPdZzQG1kHGijuokuHPdNi/KXHZkQM7OJ4aCu5JiUoOY28uz3wZhW4D+KG3dH4ei5ww2KwvjcqVL7LFKfr/ONU5Hvi7MIIty1eKpoGDYpWj3WjnbN4ye5Zo88I2ZEkP1wBw2eDDN4P3YEDYTumQndcbXFPuRRTntoGdZq3N5EBKfDZxlw4L3pgkcSLU5rWkd5UH4ZUOHAP/VaJ04mpFLsFXzzdU4xNZ5fthCwxwVBNLtHRWO26k/qcVBzvEXtKGFJmxfLGCzXScET/OjUBak/JEkkRG2m+kpmBMgFRNtjyZgQ1w08U6HHnLTiAiio3JswPlW5v56pGWRHQT5XWSkfnrXDalxtSmPnB5LmacpIImKgL8V9wLnWvBzI7SHjlyQbbgd+kUOkLlu7+717ySDEJwsFJekfuR6N/rpcYgNZYrxDwe4w57uDPlwNL6cJPfNUHV7WEbIU1pMgxsxaXe8WSvV87qLsR7H06xocl2C0JFfe2jZR4Zh3k9xzEnfCeFKBgGb4lrOWBu1eDWYgtKV67M2Y+B3W5pjuAjwAxn0waODtEn/3jKPbc/sxbPvljUCw65X+ok0UUN1eOwXV5l2EGzn05t3Yhwq19/GxARg63ISGE8CKw="
     );
 
-    public Property toProperty() {
-        return new Property("textures", value, signature);
-    }
-
-    public com.mojang.authlib.properties.Property toAuthProperty() {
-        return new com.mojang.authlib.properties.Property("textures", value, signature);
-    }
+    private final String value;
+    private final String signature;
 
     public static Skin get(UUID uniqueId) {
         return cache.computeIfAbsent(uniqueId, uuid -> {
@@ -52,5 +44,13 @@ public class Skin {
 
             return skin;
         });
+    }
+
+    public Property toProperty() {
+        return new Property("textures", value, signature);
+    }
+
+    public com.mojang.authlib.properties.Property toAuthProperty() {
+        return new com.mojang.authlib.properties.Property("textures", value, signature);
     }
 }

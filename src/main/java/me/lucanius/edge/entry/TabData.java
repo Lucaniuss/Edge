@@ -2,7 +2,7 @@ package me.lucanius.edge.entry;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import me.lucanius.edge.context.TabColumn;
+import me.lucanius.edge.column.TabColumn;
 import me.lucanius.edge.skin.Skin;
 
 /**

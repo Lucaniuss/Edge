@@ -1,4 +1,4 @@
-package me.lucanius.edge.context;
+package me.lucanius.edge.column;
 
 import lombok.Getter;
 import me.lucanius.edge.player.version.ClientVersion;
@@ -32,6 +32,18 @@ public enum TabColumn {
         }
     }
 
+    public static TabColumn get(ClientVersion version, int slot) {
+        if (version == ClientVersion.v1_7) {
+            return Arrays.stream(values()).filter(c -> c.getSlots().contains(slot)).findFirst().orElse(null);
+        }
+
+        return (slot >= 1 && slot <= 20) ? LEFT
+                : (slot >= 21 && slot <= 40) ? MIDDLE
+                : (slot >= 41 && slot <= 60) ? RIGHT
+                : (slot >= 61 && slot <= 80) ? FAR_RIGHT
+                : null;
+    }
+
     public int getSlot(ClientVersion version, int raw) {
         if (version != ClientVersion.v1_7) {
             return raw - start + 1;
@@ -46,17 +58,5 @@ public enum TabColumn {
         }
 
         return i;
-    }
-
-    public static TabColumn get(ClientVersion version, int slot) {
-        if (version == ClientVersion.v1_7) {
-            return Arrays.stream(values()).filter(c -> c.getSlots().contains(slot)).findFirst().orElse(null);
-        }
-
-        return (slot >= 1 && slot <= 20) ? LEFT
-                : (slot >= 21 && slot <= 40) ? MIDDLE
-                : (slot >= 41 && slot <= 60) ? RIGHT
-                : (slot >= 61 && slot <= 80) ? FAR_RIGHT
-                : null;
     }
 }

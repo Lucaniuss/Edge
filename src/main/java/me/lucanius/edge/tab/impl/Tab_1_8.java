@@ -2,15 +2,15 @@ package me.lucanius.edge.tab.impl;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.mojang.authlib.GameProfile;
-import me.lucanius.edge.context.TabColumn;
+import me.lucanius.edge.column.TabColumn;
 import me.lucanius.edge.entry.TabEntry;
 import me.lucanius.edge.player.PlayerTab;
+import me.lucanius.edge.player.version.ClientVersion;
 import me.lucanius.edge.skin.Skin;
 import me.lucanius.edge.tab.Tab;
 import me.lucanius.edge.tools.CC;
 import me.lucanius.edge.tools.LegacyTools;
 import me.lucanius.edge.tools.Reflections;
-import me.lucanius.edge.player.version.ClientVersion;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
