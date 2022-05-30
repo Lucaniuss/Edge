@@ -77,7 +77,7 @@ public class ExamplePlugin extends JavaPlugin {
     private Edge edge;
 
     /**
-     * new Edge(Plugin plugin, TabAdapter** **adapter)
+     * new Edge(Plugin plugin, TabAdapter adapter)
      */
     @Override
     public void onEnable() {
