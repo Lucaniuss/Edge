@@ -1,36 +1,30 @@
 package me.lucanius.edge.thread;
 
-import me.lucanius.edge.adapter.TabAdapter;
-import me.lucanius.edge.service.TabService;
-import me.lucanius.edge.tools.Voluntary;
-import org.bukkit.Bukkit;
+import me.lucanius.edge.Edge;
+import me.lucanius.edge.player.PlayerTab;
 
 /**
  * @author Lucanius
- * @since May 29, 2022.
+ * @since May 30, 2022.
  * Edge - All Rights Reserved.
  */
 public class TabThread extends Thread {
 
     private final long sleepTime;
-    private final TabService service;
-    private final TabAdapter adapter;
+    private final Edge instance;
 
-    public TabThread(TabService service, TabAdapter adapter) {
+    public TabThread() {
         this.sleepTime = 20L * 50L;
-        this.service = service;
-        this.adapter = adapter;
+        this.instance = Edge.getInstance();
+
+        start();
     }
 
     @Override
     public void run() {
         while (true) {
             try {
-                Bukkit.getOnlinePlayers().forEach(player ->
-                        Voluntary.ofNull(service.get(player.getUniqueId())).ifPresent(tab ->
-                                adapter.getEntries(player).forEach(tab::set)
-                        )
-                );
+                instance.getRegistered().values().forEach(PlayerTab::update);
                 sleep(sleepTime);
             } catch (final Exception e) {
                 e.printStackTrace();

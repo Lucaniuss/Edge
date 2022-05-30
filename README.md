@@ -1,7 +1,5 @@
 # Edge
-An open-sourced **unfinished** Tablist API.
-(**Unfinished** means that the API is not complete, and may return exceptions and/or change in the future)
-
+An open-sourced Tablist API. (This API can produce errors, please report them to me if you encounter any)
 ***
 
 ### How to use & implement
@@ -10,47 +8,66 @@ An open-sourced **unfinished** Tablist API.
  * Implement the TabAdapter interface
  */
 public class TabLayout implements TabAdapter {
+    
+    private final ExamplePlugin plugin = ExamplePlugin.getInstance();
 
     /**
      * Return your desired tab header
      */
     @Override
-    public String getHeader(Player player) {
-        return CC.BLUE + CC.BOLD + "Edge";
+    public List<String> getHeader(Player player) {
+        return Arrays.asList(" ", CC.BLUE + CC.BOLD + "Edge", " ");
     }
 
     /**
      * Return your desired tab footer
      */
     @Override
-    public String getFooter(Player player) {
-        return CC.GRAY + CC.ITALIC + "lucanius.me";
+    public List<String> getFooter(Player player) {
+        return Arrays.asList(" ", CC.GRAY + CC.ITALIC + "lucanius.me", " ");
     }
 
     /**
-     * Return your desired tab entries by creating a Set of TabEntry
+     * Return your desired tab entries by creating a Set of TabData
      *
-     * new TabEntry(String line, int slot, int latency, Skin skin)
+     * new TabData(TabColumn column, int slot, String text, int latency, Skin skin)
      */
     @Override
-    public Set<TabEntry> getEntries(Player player) {
-        Set<TabEntry> entries = new HashSet<>();
+    public Set<TabData> getEntries(Player player) {
+        Set<TabData> entries = new HashSet<>();
 
-        for (int i = 0; i < 80; i++) {
-            entries.add(new TabEntry(CC.AQUA + "Slot: " + i, i, -1, Skin.EMPTY));
-        }
+        entries.add(new TabData(TabColumn.MIDDLE, 1, CC.BLUE + CC.BOLD + "Edge"));
+        entries.add(new TabData(TabColumn.MIDDLE, 2, CC.GRAY + CC.ITALIC + "lucanius.me"));
+
+        entries.add(new TabData(TabColumn.LEFT, 4, "Left"));
+        entries.add(new TabData(TabColumn.MIDDLE, 4, "Center"));
+        entries.add(new TabData(TabColumn.RIGHT, 4, "Right"));
+        entries.add(new TabData(TabColumn.FAR_RIGHT, 4, "Far Right"));
+
+        entries.add(new TabData(TabColumn.MIDDLE, 19, "Your Skin", plugin.getEdge().getSkin(player.getUniqueId())));
 
         return entries;
     }
 }
 ```
 ```java
+private Edge edge;
+
 /**
- * new Edge(Plugin plugin, TabAdapter adapter)
+ * new Edge(Plugin plugin, TabAdapter** **adapter)
  */
 @Override
 public void onEnable() {
-    new Edge(this, new TabLayout());
+    this.edge = new Edge(this, new TabLayout());
+}
+
+@Override
+public void onDisable() {
+    this.edge.destroy();
+}
+
+public Edge getEdge() {
+    return this.edge;
 }
 ```
 

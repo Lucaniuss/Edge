@@ -1,21 +1,22 @@
 package me.lucanius.edge.adapter;
 
-import me.lucanius.edge.entry.TabEntry;
+import me.lucanius.edge.entry.TabData;
 import org.bukkit.entity.Player;
 
+import java.util.List;
 import java.util.Set;
 
 /**
  * @author Lucanius
- * @since May 29, 2022.
+ * @since May 30, 2022.
  * Edge - All Rights Reserved.
  */
 public interface TabAdapter {
 
-    String getHeader(Player player);
+    List<String> getHeader(Player player);
 
-    String getFooter(Player player);
+    List<String> getFooter(Player player);
 
-    Set<TabEntry> getEntries(Player player);
+    Set<TabData> getEntries(Player player);
 
 }

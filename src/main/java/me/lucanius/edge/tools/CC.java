@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * Taken from my Twilight project.
  */
 @UtilityClass
-public final class CC {
+public class CC {
 
     public final String BLUE = ChatColor.BLUE.toString();
     public final String AQUA = ChatColor.AQUA.toString();
@@ -52,5 +52,30 @@ public final class CC {
 
     public List<String> translate(String[] array) {
         return Arrays.stream(array).map(CC::translate).collect(Collectors.toList());
+    }
+
+    public String[] splitStrings(String text, int rawSlot) {
+        if (text.length() > 16) {
+            String prefix = text.substring(0, 16);
+            String suffix;
+
+            if (prefix.charAt(15) == COLOR_CHAR) {
+                prefix = prefix.substring(0, 15);
+                suffix = text.substring(15);
+            } else if (prefix.charAt(14) == COLOR_CHAR) {
+                prefix = prefix.substring(0, 14);
+                suffix = text.substring(14);
+            } else {
+                suffix = ChatColor.getLastColors(translate(prefix)) + text.substring(16);
+            }
+
+            if (suffix.length() > 16) {
+                suffix = suffix.substring(0, 16);
+            }
+
+            return new String[]{prefix, suffix};
+        } else {
+            return new String[]{text};
+        }
     }
 }
