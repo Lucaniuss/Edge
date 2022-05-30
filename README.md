@@ -3,11 +3,11 @@ An open-sourced Tablist API. (This API can produce errors, please report them to
 ***
 
 ### Importing with Maven
-```java
+```xml
 <repositories>
     <repository>
         <id>edge-repo</id>
-        <url>https://raw.github.com/Lucanius/Edge/repository/</url>
+        <url>https://raw.github.com/Lucaniuss/Edge/repository/</url>
     </repository>
 </repositories>
     
@@ -70,23 +70,34 @@ public class TabLayout implements TabAdapter {
 }
 ```
 ```java
-private Edge edge;
+public class ExamplePlugin extends JavaPlugin {
+    
+    private static ExamplePlugin instance;
+    
+    private Edge edge;
 
-/**
- * new Edge(Plugin plugin, TabAdapter** **adapter)
- */
-@Override
-public void onEnable() {
-    this.edge = new Edge(this, new TabLayout());
-}
+    /**
+     * new Edge(Plugin plugin, TabAdapter** **adapter)
+     */
+    @Override
+    public void onEnable() {
+        instance = this;
+        
+        this.edge = new Edge(this, new TabLayout());
+    }
 
-@Override
-public void onDisable() {
-    this.edge.destroy();
-}
+    @Override
+    public void onDisable() {
+        this.edge.destroy();
+    }
+    
+    public static ExamplePlugin getInstance() {
+        return instance;
+    }
 
-public Edge getEdge() {
-    return this.edge;
+    public Edge getEdge() {
+        return this.edge;
+    }
 }
 ```
 
