@@ -12,8 +12,7 @@ import org.bukkit.OfflinePlayer;
  * @since May 30, 2022.
  * Edge - All Rights Reserved.
  */
-@Data
-@AllArgsConstructor
+@Data @AllArgsConstructor
 public class TabEntry {
 
     private String identifier;
