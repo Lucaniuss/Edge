@@ -1,7 +1,7 @@
 package me.lucanius.edge.context;
 
 import lombok.Getter;
-import me.lucanius.edge.version.ClientVersion;
+import me.lucanius.edge.player.version.ClientVersion;
 
 import java.util.ArrayList;
 import java.util.Arrays;

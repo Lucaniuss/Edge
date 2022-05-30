@@ -5,8 +5,8 @@ import me.lucanius.edge.context.TabColumn;
 import me.lucanius.edge.entry.TabEntry;
 import me.lucanius.edge.player.PlayerTab;
 import me.lucanius.edge.skin.Skin;
-import me.lucanius.edge.tools.Tools;
-import me.lucanius.edge.version.ClientVersion;
+import me.lucanius.edge.tools.CC;
+import me.lucanius.edge.player.version.ClientVersion;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -26,7 +26,7 @@ public abstract class Tab {
 
     protected Tab() {
         instance = this;
-        Tools.log("Tab: " + getClass().getSimpleName() + " loaded.");
+        CC.log("Tab: " + getClass().getSimpleName() + " loaded.");
     }
 
     public abstract TabEntry create(PlayerTab tab, String string, TabColumn column, int slot, int rawSlot);

@@ -8,7 +8,6 @@ import me.lucanius.edge.tab.Tab;
 import me.lucanius.edge.tab.impl.Tab_1_7;
 import me.lucanius.edge.tab.impl.Tab_1_8;
 import me.lucanius.edge.thread.TabThread;
-import me.lucanius.edge.tools.Voluntary;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,6 +18,7 @@ import org.bukkit.scoreboard.Team;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -67,7 +67,7 @@ public class Edge implements Listener {
     }
 
     public void unregister(Player player) {
-        Voluntary.ofNull(player.getScoreboard().getTeam("\\u000181")).ifPresent(Team::unregister);
+        Optional.ofNullable(player.getScoreboard().getTeam("\\u000181")).ifPresent(Team::unregister);
         registered.remove(player.getUniqueId());
     }
 

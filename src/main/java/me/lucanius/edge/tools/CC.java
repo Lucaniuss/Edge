@@ -1,6 +1,7 @@
 package me.lucanius.edge.tools;
 
 import lombok.experimental.UtilityClass;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 import java.util.Arrays;
@@ -52,6 +53,10 @@ public class CC {
 
     public List<String> translate(String[] array) {
         return Arrays.stream(array).map(CC::translate).collect(Collectors.toList());
+    }
+
+    public void log(String message) {
+        Bukkit.getConsoleSender().sendMessage(translate("&9[Edge] &e" + message));
     }
 
     public String[] splitStrings(String text, int rawSlot) {

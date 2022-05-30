@@ -1,4 +1,4 @@
-package me.lucanius.edge.version;
+package me.lucanius.edge.player.version;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

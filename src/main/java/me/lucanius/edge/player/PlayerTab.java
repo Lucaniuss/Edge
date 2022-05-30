@@ -8,10 +8,9 @@ import me.lucanius.edge.entry.TabEntry;
 import me.lucanius.edge.skin.Skin;
 import me.lucanius.edge.tab.Tab;
 import me.lucanius.edge.tab.impl.Tab_1_7;
+import me.lucanius.edge.tools.CC;
 import me.lucanius.edge.tools.LegacyTools;
-import me.lucanius.edge.tools.Tools;
-import me.lucanius.edge.tools.Voluntary;
-import me.lucanius.edge.version.ClientVersion;
+import me.lucanius.edge.player.version.ClientVersion;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Scoreboard;
@@ -114,13 +113,12 @@ public class PlayerTab {
         if (!headerFooter && !v1_7) {
             tab.updateHeaderFooter(player, adapter.getHeader(player), adapter.getFooter(player));
             headerFooter = true;
-            Tools.log("Updated header and footer for " + player.getName());
+            CC.log("Updated header and footer for " + player.getName());
         }
 
         Set<TabEntry> oldEntries = new HashSet<>(entries);
         adapter.getEntries(player).forEach(data ->
-                Voluntary.ofNull(entries.stream().filter(entry -> entry.getColumn() == data.getColumn() && entry.getSlot() == data.getSlot())
-                        .findFirst().orElse(null)).ifPresent(entry -> {
+                entries.stream().filter(entry -> entry.getColumn() == data.getColumn() && entry.getSlot() == data.getSlot()).findFirst().ifPresent(entry -> {
                     oldEntries.remove(entry);
                     tab.updateFake(this, entry, data.getText());
                     tab.updateLatency(this, entry, data.getLatency());
@@ -139,6 +137,6 @@ public class PlayerTab {
 
         oldEntries.clear();
 
-        Tools.log("Tab updated for " + player.getName());
+        CC.log("Tab updated for " + player.getName());
     }
 }

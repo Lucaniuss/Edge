@@ -10,7 +10,7 @@ import me.lucanius.edge.tab.Tab;
 import me.lucanius.edge.tools.CC;
 import me.lucanius.edge.tools.LegacyTools;
 import me.lucanius.edge.tools.Reflections;
-import me.lucanius.edge.version.ClientVersion;
+import me.lucanius.edge.player.version.ClientVersion;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
