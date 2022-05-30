@@ -2,6 +2,25 @@
 An open-sourced Tablist API. (This API can produce errors, please report them to me if you encounter any)
 ***
 
+### Importing with Maven
+```java
+<repositories>
+    <repository>
+        <id>edge-repo</id>
+        <url>https://raw.github.com/Lucanius/Edge/repository/</url>
+    </repository>
+</repositories>
+    
+<dependencies>
+    <dependency> <!-- Edge -->
+        <groupId>me.lucanius.edge</groupId>
+        <artifactId>Edge</artifactId>
+        <version>1.0</version>
+        <scope>compile</scope>
+    </dependency>
+</dependencies>
+```
+
 ### How to use & implement
 ```java
 /**
