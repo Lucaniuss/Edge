@@ -25,7 +25,7 @@ public class StandardTabService implements TabService {
 
     public StandardTabService() {
         this.registered = new ConcurrentHashMap<>();
-        this.thread = new TabThread();
+        this.thread = new TabThread(this);
     }
 
     @Override

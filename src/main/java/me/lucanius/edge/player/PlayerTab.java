@@ -9,7 +9,6 @@ import me.lucanius.edge.player.version.ClientVersion;
 import me.lucanius.edge.skin.Skin;
 import me.lucanius.edge.tab.Tab;
 import me.lucanius.edge.tab.impl.Tab_1_7;
-import me.lucanius.edge.tools.CC;
 import me.lucanius.edge.tools.LegacyTools;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -113,7 +112,6 @@ public class PlayerTab {
         if (!headerFooter && !v1_7) {
             tab.updateHeaderFooter(player, adapter.getHeader(player), adapter.getFooter(player));
             headerFooter = true;
-            CC.log("Updated header and footer for " + player.getName());
         }
 
         Set<TabEntry> oldEntries = new HashSet<>(entries);
@@ -136,7 +134,5 @@ public class PlayerTab {
         });
 
         oldEntries.clear();
-
-        CC.log("Tab updated for " + player.getName());
     }
 }

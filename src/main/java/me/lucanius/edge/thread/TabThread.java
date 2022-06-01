@@ -1,6 +1,5 @@
 package me.lucanius.edge.thread;
 
-import me.lucanius.edge.Edge;
 import me.lucanius.edge.player.PlayerTab;
 import me.lucanius.edge.service.TabService;
 
@@ -14,9 +13,9 @@ public class TabThread extends Thread {
     private final long sleepTime;
     private final TabService service;
 
-    public TabThread() {
+    public TabThread(TabService service) {
         this.sleepTime = 20L * 50L;
-        this.service = Edge.getInstance().getService();
+        this.service = service;
 
         start();
     }
