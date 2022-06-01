@@ -88,7 +88,7 @@ public class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        this.edge.destroy();
+        this.edge.getService().destroy();
     }
     
     public static ExamplePlugin getInstance() {

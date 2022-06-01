@@ -2,6 +2,7 @@ package me.lucanius.edge.thread;
 
 import me.lucanius.edge.Edge;
 import me.lucanius.edge.player.PlayerTab;
+import me.lucanius.edge.service.TabService;
 
 /**
  * @author Lucanius
@@ -11,11 +12,11 @@ import me.lucanius.edge.player.PlayerTab;
 public class TabThread extends Thread {
 
     private final long sleepTime;
-    private final Edge instance;
+    private final TabService service;
 
     public TabThread() {
         this.sleepTime = 20L * 50L;
-        this.instance = Edge.getInstance();
+        this.service = Edge.getInstance().getService();
 
         start();
     }
@@ -24,7 +25,7 @@ public class TabThread extends Thread {
     public void run() {
         while (true) {
             try {
-                instance.getRegistered().values().forEach(PlayerTab::update);
+                service.getRegistered().values().forEach(PlayerTab::update);
                 sleep(sleepTime);
             } catch (final Exception e) {
                 e.printStackTrace();
