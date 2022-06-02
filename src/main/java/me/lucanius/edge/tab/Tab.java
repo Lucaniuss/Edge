@@ -45,7 +45,10 @@ public abstract class Tab {
         StringBuilder builder = new StringBuilder();
 
         for (String line : lines) {
-            builder.append(line).append("\n");
+            builder.append(line);
+            if (lines.indexOf(line) != lines.size() - 1) {
+                builder.append("\n");
+            }
         }
 
         return builder.toString();
