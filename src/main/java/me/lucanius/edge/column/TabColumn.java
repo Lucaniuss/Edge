@@ -44,6 +44,19 @@ public enum TabColumn {
                 : null;
     }
 
+    public static TabColumn fromSlot(ClientVersion version, int slot) {
+        switch (slot) {
+            case 0:
+                return LEFT;
+            case 1:
+                return MIDDLE;
+            case 2:
+                return RIGHT;
+        }
+
+        return slot == 3 && version != ClientVersion.v1_7 ? FAR_RIGHT : null;
+    }
+
     public int getSlot(ClientVersion version, int raw) {
         if (version != ClientVersion.v1_7) {
             return raw - start + 1;
