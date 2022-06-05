@@ -61,7 +61,8 @@
             <groupId>com.github.ProtocolSupport</groupId>
             <artifactId>ProtocolSupport</artifactId>
             <version>f188eb2ea8</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/ProtocolSupport-1.8.jar</systemPath>
         </dependency>
         <dependency> <!-- ProtocolLib -->
             <groupId>com.comphenix.protocol</groupId>
