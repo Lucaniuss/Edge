@@ -6,16 +6,16 @@ An open-sourced Tablist API primarily made for 1.7x-1.8x Spigot servers. (This A
 ```xml
 <repositories>
     <repository>
-        <id>edge-repo</id>
-        <url>https://raw.github.com/Lucaniuss/Edge/repository/</url>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
     </repository>
 </repositories>
     
 <dependencies>
     <dependency> <!-- Edge -->
-        <groupId>me.lucanius.edge</groupId>
-        <artifactId>Edge</artifactId>
-        <version>1.0</version>
+	    <groupId>com.github.Lucaniuss</groupId>
+	    <artifactId>Edge</artifactId>
+	    <version>-SNAPSHOT</version>
         <scope>compile</scope>
     </dependency>
 </dependencies>
